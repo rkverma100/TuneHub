@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href=createPlaylist.css>
+</head>
+<body>
+<img alt="music" src="https://th.bing.com/th/id/R.09b5127468112fb427537e105771e9bd?rik=ZeLUCQu7nR9fKQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2015%2f01%2f3d-colorful-music-notes-wallpaper-desktop-background.jpg&ehk=FhdgRJ20PYuIoWD7pxh3%2btohlf3pCj837hsfA3W8Eoo%3d&risl=&pid=ImgRaw&r=0">
+<div class="body">
+	<div class="navbar">
+		<div class="home">
+			<a href="adminHome">Go to Home Page</a>
+		</div>
+		<div class="logout">
+			<a href="login">Logout</a>
+		</div>
+	</div>
+	<div class="container">
+		<form action="addPlaylist" method="get">
+			<label>Playlist Name:</label>
+			<input type="text" name="name" />
+			<br><br>
+			
+			<div th:each="song:${songs}" class="songs">
+				<input type="checkbox" th:name="songs" th:value="${song.id}"/> 
+				<label th:text="${song.name}"></label>
+			</div>
+			<input type="submit" value="Add Playlist"/>
+		</form>
+	</div>
+</div>
+</body>
+</html>
